@@ -6,9 +6,8 @@ By selecting, or highlighting the block of text you want the page-break to appea
 ### Installation
 
 #### 1. A note for using this plugin.
-In your main CSS for where the page-break/s will be used, you'll need to make sure that the below is included in your stylesheet.
-The first declaration ensures that the page-break is never seen visually on your page, while the second ensures that the page break is seen by the printer.
-
+If your stylesheet does not contain a `.page-break` class you can use the styles below, there's different ways you can add the class to your pages.
+You can add the class directly into your stylesheet that gets included into your pages as below:
 ````css
 @media all {
 	.page-break	{ display: none; }
@@ -17,6 +16,18 @@ The first declaration ensures that the page-break is never seen visually on your
 @media print {
 	.page-break	{ display: block; page-break-before: always; }
 }
+````
+Or you can add them directly to your page/s like below:
+````html
+<style>
+	@media all {
+		.page-break	{ display: none; }
+	}
+
+	@media print {
+		.page-break	{ display: block; page-break-before: always; }
+	}
+</style>
 ````
 
 #### 2. Include JS
