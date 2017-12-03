@@ -12,22 +12,32 @@ If your stylesheet does not contain a `.page-break` class you can use the styles
 You can add the class directly into your stylesheet that gets included into your pages as below:
 ````css
 @media all {
-	.page-break	{ display: none; }
+	.page-break	{
+		display: none;
+	}
 }
 
 @media print {
-	.page-break	{ display: block; page-break-before: always; }
+	.page-break	{
+		display: block;
+		page-break-before: always;
+	}
 }
 ````
 Or you can add them directly to your page/s like below:
 ````html
 <style>
 	@media all {
-		.page-break	{ display: none; }
+		.page-break	{
+			display: none;
+		}
 	}
 
 	@media print {
-		.page-break	{ display: block; page-break-before: always; }
+		.page-break	{
+			display: block;
+			page-break-before: always;
+		}
 	}
 </style>
 ````
