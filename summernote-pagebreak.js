@@ -32,18 +32,22 @@
         var button = ui.button({
           contents: options.pagebreak.icon,
           tooltip:  lang.pagebreak.tooltip,
-          click:function(e) {
+          container: 'body',
+          click: function (e) {
             e.preventDefault();
             if (getSelection().rangeCount > 0) {
               var el = getSelection().getRangeAt(0).commonAncestorContainer.parentNode;
-              if (!$(el).hasClass('.page-break')) {
+              if ($(el).hasClass('note-editable')) {
+                el = getSelection().getRangeAt(0).commonAncestorContainer;
+              }
+              if (!$(el).hasClass('page-break')) {
                 if ($(el).next('div.page-break').length < 1)
                   $('<div class="page-break"></div>').insertAfter(el);
               }
             } else {
-              if ($('.note-editable div').last().attr('class') != 'page-break')
+              if ($('.note-editable div').last().attr('class') !== 'page-break')
                 $('.note-editable').append('<div class="page-break"></div>');
-            }
+              }
           }
         });
         return button.render();
