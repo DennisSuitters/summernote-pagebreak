@@ -47,7 +47,10 @@
             } else {
               if ($('.note-editable div').last().attr('class') !== 'page-break')
                 $('.note-editable').append('<div class="page-break"></div>');
-              }
+            }
+
+            // Launching this method to force Summernote sync it's content with the bound textarea element
+            context.invoke('editor.insertText','');
           }
         });
         return button.render();
